@@ -13,7 +13,7 @@ __version__ = "0.0.0" # code provisioning
 
 REPO_NAME = "inquisitive"
 AUTHOR_USER_NAME = "lmg1404"
-SRC_REPO = "app"
+SRC_REPO = "package"
 AUTHOR_EMAIL = "luismg0203@gmail.com"
     
 setuptools.setup(
@@ -28,6 +28,6 @@ setuptools.setup(
     project_urls={
         "Bug Tracker": f""
     },
-    package_dir={"": "app"},
-    packages=setuptools.find_packages(where="app")
+    package_dir={"": "src"},
+    packages=setuptools.find_packages(where="src")
 )
