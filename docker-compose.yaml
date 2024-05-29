@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: llm-questions
+    command: uvicorn app:app --host 0.0.0.0 --port 80 --reload # --reload-include *
+    ports:
+      - 8080:80
+    volumes:
+      - .:/app # if we change anything in the project folder we get updated in the docker folder and uvicorn picks up on it
