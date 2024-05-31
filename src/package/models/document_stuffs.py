@@ -6,6 +6,22 @@ class CustomSection:
     def __init__(self, section_title, section_text):
         self.title = section_title
         self.text = section_text
+        
+    # =======================================
+    #                  DUNDERS
+    # =======================================
+    
+    def __getitem__(self, idx):
+        return self.text[idx]
+    
+    def __len__(self):
+        return len(self.text)
+    
+    def __str__(self):
+        return f"Custom section {self.title}"
+    
+    def __repr__(self):
+        return str(self)
 
 class CustomPage:
     def __init__(self, page_number: int, page: pymupdf.Page, page_headings: List[str]):
@@ -85,7 +101,7 @@ class CustomDocument:
             pages.append(CustomPage(page_num, page, page_headings)) # headings should go away once popped
         return pages
         
-    def get_full_text(self):
+    def get_full_text(self) -> str:
         """Text I would need to do analysis and show end users"""
         full_text = []
         for page_num, page in enumerate(self.pages):
